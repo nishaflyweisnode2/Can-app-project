@@ -8,6 +8,11 @@ const professionRoutes = require('./src/routes/professionRoutes');
 const chooseProfessionRoutes = require('./src/routes/chooseProfessionRoutes');
 const profileRoutes = require('./src/routes/profileRoutes');
 const pageRoutes = require('./src/routes/pageRoutes');
+const resumeRoutes = require('./src/routes/resumeRoutes');
+const callRoutes = require('./src/routes/callRoutes');
+const websiteRoutes = require('./src/routes/websiteRoutes');
+const youtubeRoutes = require('./src/routes/youtubeRoutes');
+const brochureRoutes = require('./src/routes/brochureRoutes');
 
 
 
@@ -54,6 +59,11 @@ app.use('/profession', professionRoutes);
 app.use('/chooseProfession', chooseProfessionRoutes);
 app.use('/profile', profileRoutes);
 app.use('/page', pageRoutes);
+app.use('/resume', resumeRoutes);
+app.use('/call', callRoutes);
+app.use('/website', websiteRoutes);
+app.use('/youtube', youtubeRoutes);
+app.use('/brochure', brochureRoutes);
 
 
 
