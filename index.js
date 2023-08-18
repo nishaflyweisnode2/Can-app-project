@@ -13,6 +13,12 @@ const callRoutes = require('./src/routes/callRoutes');
 const websiteRoutes = require('./src/routes/websiteRoutes');
 const youtubeRoutes = require('./src/routes/youtubeRoutes');
 const brochureRoutes = require('./src/routes/brochureRoutes');
+const introductionRoutes = require('./src/routes/introductionRoutes');
+const instagramRoutes = require('./src/routes/instagramRoutes');
+const appointmentRoutes = require('./src/routes/appointmentRoutes');
+const galleryRoutes = require('./src/routes/galleryRoutes');
+const categoryRoutes = require('./src/routes/categoryRoutes');
+const postRoutes = require('./src/routes/postRoutes');
 
 
 
@@ -64,6 +70,12 @@ app.use('/call', callRoutes);
 app.use('/website', websiteRoutes);
 app.use('/youtube', youtubeRoutes);
 app.use('/brochure', brochureRoutes);
+app.use('/introduction', introductionRoutes);
+app.use('/instagram', instagramRoutes);
+app.use('/appointment', appointmentRoutes);
+app.use('/gallery', galleryRoutes);
+app.use('/category', categoryRoutes);
+app.use('/post', postRoutes);
 
 
 
