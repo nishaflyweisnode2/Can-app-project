@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
     chooseProfile: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profile',
         required: true,
     },
     upload: {
@@ -14,7 +15,8 @@ const postSchema = new mongoose.Schema({
         }],
     },
     choosePostCategory: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
         required: true,
     },
     title: {

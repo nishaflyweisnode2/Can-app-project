@@ -19,6 +19,8 @@ const appointmentRoutes = require('./src/routes/appointmentRoutes');
 const galleryRoutes = require('./src/routes/galleryRoutes');
 const categoryRoutes = require('./src/routes/categoryRoutes');
 const postRoutes = require('./src/routes/postRoutes');
+const experienceRoutes = require('./src/routes/experienceRoutes');
+const visionRoutes = require('./src/routes/visionRoutes');
 
 
 
@@ -76,6 +78,8 @@ app.use('/appointment', appointmentRoutes);
 app.use('/gallery', galleryRoutes);
 app.use('/category', categoryRoutes);
 app.use('/post', postRoutes);
+app.use('/experience', experienceRoutes);
+app.use('/vision', visionRoutes);
 
 
 

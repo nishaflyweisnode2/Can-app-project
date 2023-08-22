@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+
 const profileSchema = new mongoose.Schema({
     image: {
         type: String,
@@ -12,7 +14,9 @@ const profileSchema = new mongoose.Schema({
         type: String,
     },
     profession: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profession',
+        required: true,
     },
     location: {
         state: {
@@ -27,22 +31,16 @@ const profileSchema = new mongoose.Schema({
         },
     },
     taps: {
-        tap1: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tap1' }],
-        tap2: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tap2' }],
+        tap1: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Page' }],
+        tap2: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Page' }],
     },
-    managePages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ManagePage' }],
+    managePages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Page' }],
     permission: {
         type: Boolean,
-        
+        required: true,
     },
-
-
 }, { timestamps: true });
 
-
-
 const Profile = mongoose.model('Profile', profileSchema);
-
-
 
 module.exports = Profile;

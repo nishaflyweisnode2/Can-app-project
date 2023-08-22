@@ -7,7 +7,7 @@ const { createPageValidation } = require('../validation/pageValidation');
 
 const createPage = async (req, res) => {
     try {
-        const { intro, status, resume, vision, aim, experience, skills, achievements, timeline, brochure, menu, donate, appointment, instagram, youtube, website, call, contactMe, buyNow, payNow, gallery, portfolio, pitchDeck } = req.body;
+        const { introduction, status, resume, vision, aim, experience, skills, achievements, timeline, brochure, menu, donate, appointment, instagram, youtube, website, call, contactMe, buyNow, payNow, gallery, portfolio, pitchDeck } = req.body;
 
         const { error } = createPageValidation.validate(req.body);
         if (error) {
