@@ -7,18 +7,6 @@ const IntroductionDb = require('../model/introductionModel');
 const { profileValidation, updateProfileValidation, profileIdValidation } = require('../validation/profileValidation');
 
 
-// Image Start
-const cloudinary = require('cloudinary').v2;
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-cloudinary.config({
-    cloud_name: process.env.cloud_name,
-    api_key: process.env.api_key,
-    api_secret: process.env.api_secret
-});
-// Image End
-
-
 
 
 const createProfile = async (req, res) => {
@@ -38,11 +26,11 @@ const createProfile = async (req, res) => {
             return res.status(400).json({ status: 400, message: error.details[0].message });
         }
 
-        if (!req.file) {
-            return res.status(400).json({ error: 'Image is required' });
-        }
+        let image;
 
-        const uploadedImage = await cloudinary.uploader.upload(req.file.path);
+        if (req.file) {
+            image = req.file ? req.file.path : "";
+        }
 
         const professionExists = await Profession.findById(profession);
         if (!professionExists) {
@@ -64,7 +52,7 @@ const createProfile = async (req, res) => {
         }
 
         const newProfile = new ProfileDb({
-            image: uploadedImage.secure_url,
+            image,
             name,
             text,
             profession,
@@ -126,8 +114,7 @@ const updateProfile = async (req, res) => {
         console.log("Updated Profile Data:", updatedProfileData);
 
         if (req.file) {
-            const uploadedImage = await cloudinary.uploader.upload(req.file.path);
-            updatedProfileData.image = uploadedImage.secure_url;
+            updatedProfileData.image = req.file ? req.file.path : "";
         }
 
         const professionExists = await Profession.findById(profession);
